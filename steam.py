@@ -12,14 +12,14 @@ container = page_soup.findAll('a', {'class':'tab_item'})
 try:
     count = 0
     for item in container:
-        contain = container[count].find('div','tab_item_discount')
-        contain1 = container[count].find('div','tab_item_content')
-        contain2 = container[count].find('div', 'tab_item_cap')
-        contain3 = contain1.find('div', 'tab_item_top_tags')
-        print("price: " + contain['data-price-final'])
-        print("Title: " + contain1.div.text)
-        print("Cover: " + contain2.img['src'])
-        print("Tags: " + contain3.text)
+        price = container[count].find('div','tab_item_discount')
+        title = container[count].find('div','tab_item_content')
+        cover = container[count].find('div', 'tab_item_cap')
+        tags = title.find('div', 'tab_item_top_tags')
+        print("price: " + price['data-price-final'])
+        print("Title: " + title.div.text)
+        print("Cover: " + cover.img['src'])
+        print("Tags: " + tags.text)
         count += 1
 except KeyError:
     print("Key error found, assuming end of results.")
