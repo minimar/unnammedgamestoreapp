@@ -1,6 +1,12 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import React from "react"
+import { Route, Switch } from "react-router-dom"
 
-document.addEventListener("DOMContentLoaded", (e) => {
-  ReactDOM.render(<h2>Welcome to unnamed game store!</h2>, document.body);
-})
+import HomePage from "./home/homePage.jsx"
+
+const App = () => (
+  <Switch>
+    <Route exact path="/" component={HomePage}/>
+  </Switch>
+)
+
+export default App;
