@@ -1,7 +1,7 @@
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 
-my_url = 'https://store.steampowered.com/category/action_rogue_like/'
+my_url = 'https://store.steampowered.com/'
 
 uClient = uReq(my_url)
 page_html = uClient.read()
