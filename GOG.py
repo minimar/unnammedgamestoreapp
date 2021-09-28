@@ -1,22 +1,18 @@
-from urllib.request import urlopen as uReq
-from bs4 import BeautifulSoup as soup
-my_url = 'https://www.gog.com/games?page=1&sort=popularity&tab=new'
-uClient = uReq(my_url)
-page_html = uClient.read()
-uClient.close()
-page_soup = soup(page_html, 'html.parser')
-container = page_soup.findAll('div', {'ng-repeat':'tileData in catalog.products track by tileData.id'})
-try:
-    count = 0
-    for item in container:
-        contain = container[count].find('div','product-tile')
-        #contain1 = container[count].find('div','product-tile_title')
-        #contain2 = container[count].find('div', 'product-tile_cover')
-        print("price: " + contain['product-tile-id'])
-        #print("Title: " + contain1.text)
-        #print("Cover: " + contain2.picture.img['src'])
-        count += 1
-except KeyError:
-    print("Key error found, assuming end of results.")
-else:
-    print("Unknown error.")
+from requests_html import AsyncHTMLSession
+session = AsyncHTMLSession()
+
+async def get_gog():
+  r = await session.get('https://www.gog.com/games?page=1&sort=popularity&tab=new')
+  await r.html.arender()
+  grid = r.html.find('[ng-show="viewSwitcher.activeView != \'list\'"]', first=False)
+  # print(title)
+  for game in grid:
+    blockitem = game.find('.product-tile', first=False)
+    title = blockitem[0].find('.product-tile__title')
+    price = blockitem[0].find('.product-tile__price-discounted')
+    img = blockitem[0].find('.product-tile__cover-img')
+    print(title[0].text)
+    print(price[0].text)
+    print(img[0].attrs['lazy-src'])
+
+session.run(get_gog)
