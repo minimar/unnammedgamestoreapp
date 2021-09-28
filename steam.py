@@ -1,27 +1,32 @@
-from urllib.request import urlopen as uReq
-from bs4 import BeautifulSoup as soup
+from requests_html import AsyncHTMLSession
+session = AsyncHTMLSession()
 
-my_url = 'https://store.steampowered.com/explore/new/'
+async def get_steam():
+    r = await session.get('https://store.steampowered.com/explore/new/')
+    await r.html.arender()
 
-uClient = uReq(my_url)
-page_html = uClient.read()
-uClient.close()
+    new_releases = r.html.find('div.tab_content#tab_newreleases_content')
+    new_releases_list = new_releases[0].find('a.tab_item')
 
-page_soup = soup(page_html, 'html.parser')
-container = page_soup.findAll('a', {'class':'tab_item'})
-try:
-    count = 0
-    for item in container:
-        price = container[count].find('div','tab_item_discount')
-        title = container[count].find('div','tab_item_content')
-        cover = container[count].find('div', 'tab_item_cap')
-        tags = title.find('div', 'tab_item_top_tags')
-        print("price: " + price['data-price-final'])
-        print("Title: " + title.div.text)
-        print("Cover: " + cover.img['src'])
-        print("Tags: " + tags.text)
-        count += 1
-except KeyError:
-    print("Key error found, assuming end of results.")
-else:
-    print("Unknown error.")
+    # all_new_releases = r.html.find('#tab_allnewreleases_content')
+    # all_new_releases_list = all_new_releases[0].find('.tab_item')
+
+    # all_releases = new_releases_list + all_new_releases_list
+
+    for game in new_releases_list:
+        title = game.find('.tab_item_name')
+        print(title[0].text)
+
+        try:
+            price = game.find('.discount_final_price')
+            print(price[0].text)
+        except IndexError:
+            print("Coming Soon")
+
+        image = game.find('.tab_item_cap_img')
+        print(image[0].attrs['src'])
+
+        tags = game.find('.tab_item_top_tags')
+        print(tags[0].text)
+
+session.run(get_steam)
