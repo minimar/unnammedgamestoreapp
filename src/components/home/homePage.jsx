@@ -1,8 +1,10 @@
 import React from "react"
 
 const HomePage = () => (
-  <div className="home-container">
-    
+  <div>
+    <button class="buttonTest">
+      Text
+    </button>
   </div>
 )
 
