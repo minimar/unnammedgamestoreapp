@@ -2,7 +2,7 @@ import React from "react"
 
 const HomePage = () => (
   <div>
-    <button class="buttonTest">
+    <button className="buttonTest">
       Text
     </button>
   </div>
