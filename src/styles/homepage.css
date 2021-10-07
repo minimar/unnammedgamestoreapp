@@ -1,6 +1,59 @@
+#homePage {
+    height: 100%
+}
 .buttonTest {
     background-color: #be00b5d5;
     border: none;
     color: white;
     text-align: center;
+    height: 40px;
+    width: 120px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+#bottomNavbar  {
+    bottom: 0;
+    z-index: 2;
+}
+li {
+    float: right;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: #111;
+}
+div#content {
+    border: solid 2px blue;
+    margin-left: 100px;
+    min-height: 300px;
+    background-color: springgreen;
+}
+div#leftbar {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+}
+div#leftbar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+    display: block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
