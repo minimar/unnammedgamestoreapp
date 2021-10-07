@@ -1,59 +1,82 @@
 #homePage {
-    height: 100%
+  height: 100%;
+  display: grid;
+  grid-template-columns: 10% 1fr;
+  grid-template-rows: 4% 1fr 4%;
 }
+
 .buttonTest {
-    background-color: #be00b5d5;
-    border: none;
-    color: white;
-    text-align: center;
-    height: 40px;
-    width: 120px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #be00b5d5;
+  border: none;
+  color: white;
+  text-align: center;
+  height: 40px;
+  width: 120px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  height: 100%;
 }
-#bottomNavbar  {
-    bottom: 0;
-    z-index: 2;
+
+#bottomNavbar {
+  z-index: 2;
 }
+
 li {
-    float: right;
+  float: right;
 }
+
 li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
+
 li a:hover {
-    background-color: #111;
+  background-color: #111;
 }
+
 div#content {
-    border: solid 2px blue;
-    margin-left: 100px;
-    min-height: 300px;
-    background-color: springgreen;
+  border: solid 2px blue;
+  min-height: 300px;
+  background-color: springgreen;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
 }
+
 div#leftbar {
-    height: 100%;
-    width: 160px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
 }
+
 div#leftbar a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #ffffff;
-    display: block;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #ffffff;
+  display: block;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#header {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+#footer {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
 }
