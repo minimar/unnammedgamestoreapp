@@ -4,5 +4,7 @@ import * as ReactDOM from "react-dom";
 import Root from "./components/root.jsx"
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  ReactDOM.render(<Root />, document.body);
+  let container = document.getElementById("app")
+
+  ReactDOM.render(<Root />, container);
 })
