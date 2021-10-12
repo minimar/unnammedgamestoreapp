@@ -50,8 +50,8 @@ div#content {
   background-color: springgreen;
   grid-column: 2 / 3;
   grid-row: 2 / 3;
-  display: grid;
-  grid-auto-flow: dense;
+  /* display: grid;
+  grid-auto-flow: dense; */
 }
 
 div#leftbar {
@@ -102,10 +102,12 @@ div#rightbar::-webkit-scrollbar {
   grid-row: 1 / 2;
 }
 
-div#gridContainer {
+#gridContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  grid-template-rows: repeat(auto-fit, 260px);
+  grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
+  grid-template-rows: repeat(auto-fill, 10px);
+  /* grid-template-columns: repeat(auto-fill, 100px);
+  grid-template-rows: repeat(auto-fit, 100px); */
   grid-auto-flow: dense;
   grid-gap: 0.3rem;
 }
