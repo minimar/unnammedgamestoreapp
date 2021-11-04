@@ -181,7 +181,6 @@ const HomePage = () => (
       </div>
     </div>
     <div id="rightbar">
-      <p>This is where game info will go.</p>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed
         porttitor purus. Suspendisse dictum nisl at nisi vehicula pharetra.
